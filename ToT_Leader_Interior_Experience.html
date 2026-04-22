@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Leader's Interior Experience — Teams of Tomorrow</title>
+<style>
+  :root{--navy:#034159;--sand:#BFA084;--sage:#A4BF69;--coral:#F2955E;--cream:#E8E6DF;--dark:#2C2C2A;--mgray:#888780;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Segoe UI',Arial,sans-serif;background:var(--cream);color:var(--dark);}
+  header{background:var(--navy);padding:20px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:5px solid var(--sand);}
+  header h1{color:white;font-size:22px;font-weight:700;}
+  header p{color:var(--sand);font-size:13px;font-style:italic;}
+  main{max-width:900px;margin:0 auto;padding:40px 24px;}
+  .steps{display:flex;gap:0;border:1.5px solid #ccc;border-radius:10px;overflow:hidden;margin-bottom:28px;}
+  .step-btn{flex:1;background:none;border:none;border-right:1px solid #ccc;padding:10px 6px;font-size:11px;font-weight:600;color:var(--mgray);cursor:pointer;transition:all .15s;text-align:center;}
+  .step-btn:last-child{border-right:none;}
+  .step-btn.active{background:var(--navy);color:white;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+  .voice{font-family:Georgia,serif;font-size:15px;line-height:1.9;padding:20px 24px;border-left:4px solid var(--navy);background:white;border-radius:0;margin-bottom:20px;}
+  .voice p{margin-bottom:0.9em;}
+  .voice p:last-child{margin-bottom:0;}
+  .aside{background:white;border-radius:10px;padding:14px 18px;border:1px solid #ddd;}
+  .aside strong{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--mgray);display:block;margin-bottom:6px;}
+  .aside p{font-size:13px;line-height:1.65;color:var(--dark);}
+  .reach-card{border:1px solid #ddd;border-radius:10px;background:white;margin-bottom:8px;overflow:hidden;cursor:pointer;}
+  .reach-card:hover{border-color:#999;}
+  .reach-card.open{border-color:var(--dark);}
+  .rc-head{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;}
+  .rc-seq{width:24px;min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;margin-top:1px;}
+  .rc-title{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:2px;}
+  .rc-sub{font-size:12px;color:var(--mgray);}
+  .rc-body{display:none;padding:0 14px 12px 48px;border-top:1px solid #eee;}
+  .reach-card.open .rc-body{display:block;}
+  .rc-body p{font-size:13px;color:var(--dark);line-height:1.65;margin-top:8px;}
+  .rc-body .why{font-size:12px;color:var(--mgray);font-style:italic;margin-top:6px;line-height:1.55;}
+  .need-row{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #eee;align-items:flex-start;}
+  .need-row:last-child{border-bottom:none;}
+  .ndot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+  .need-title{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:3px;}
+  .need-body{font-size:12px;color:#555;line-height:1.55;}
+  .tot-card{border:1px solid #ddd;border-radius:10px;padding:12px 16px;background:white;margin-bottom:8px;}
+  .tot-need{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--mgray);margin-bottom:4px;}
+  .tot-what{font-size:13px;font-weight:600;color:var(--dark);margin-bottom:5px;}
+  .tot-how{font-size:12px;color:#555;line-height:1.6;}
+  .hook-card{border-left:4px solid;padding:12px 16px;margin-bottom:10px;background:white;border-radius:0 8px 8px 0;}
+  .hook-label{font-size:11px;font-weight:700;letter-spacing:.05em;margin-bottom:5px;}
+  .hook-copy{font-family:Georgia,serif;font-size:15px;color:var(--dark);line-height:1.7;}
+  .no-say{background:#f8f5f0;border-radius:8px;padding:12px 16px;border:1px solid #ddd;}
+  .no-say strong{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--mgray);display:block;margin-bottom:8px;}
+  .no-say-item{font-size:13px;color:#999;text-decoration:line-through;margin-bottom:4px;}
+  footer{background:var(--navy);border-top:5px solid var(--sand);padding:20px 40px;display:flex;justify-content:space-between;margin-top:40px;}
+  footer p{color:var(--sand);font-size:12px;}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>The Leader's Interior Experience</h1><p>What the leader in stage 3 capacity deficit is actually feeling — and what they actually need</p></div>
+  <p>Teams of Tomorrow® · Where role meets soul</p>
+</header>
+<main>
+  <div class="steps">
+    <button class="step-btn active" onclick="showStep('experience',this)">The experience</button>
+    <button class="step-btn" onclick="showStep('reaching',this)">What they reach for</button>
+    <button class="step-btn" onclick="showStep('needs',this)">Real needs</button>
+    <button class="step-btn" onclick="showStep('tot',this)">ToT response</button>
+    <button class="step-btn" onclick="showStep('language',this)">The language</button>
+  </div>
+
+  <div id="sp-experience" class="panel active">
+    <div class="voice">
+      <p>Something has shifted. I can't quite name it — which is itself unsettling, because I am someone who can name things.</p>
+      <p>The frameworks I reach for are producing noise where they used to produce clarity. I apply them and the result isn't what the framework predicts. I adjust. Try again. Work harder. The noise gets louder.</p>
+      <p>I find myself in more meetings, across more decisions, closer to the work. Not because I don't trust the team. Because I don't trust the situation. If I can just hold it tightly enough, perhaps I can stop it slipping further.</p>
+      <p>None of this works. And the not-working is accumulating.</p>
+      <p>The loneliness of this is specific. It is not the loneliness of having no one around — I am surrounded by people. It is the loneliness of carrying something I cannot put down in any of the spaces available to me.</p>
+    </div>
+    <div class="aside"><strong>WHAT THIS PERSON IS NOT YET ABLE TO ARTICULATE</strong><p>That the terrain has changed in a way their entire toolkit was not designed for. That what is needed is not more competence but a different kind of capacity. That the dissonance they feel is not a symptom of failure but a signal from the system.</p></div>
+  </div>
+
+  <div id="sp-reaching" class="panel">
+    <p style="font-size:13px;color:var(--mgray);margin-bottom:16px;">The leader reaches for things in sequence. Each feels reasonable. Each fails in a specific way.</p>
+    <div id="reaches"></div>
+  </div>
+
+  <div id="sp-needs" class="panel">
+    <p style="font-size:13px;color:var(--mgray);margin-bottom:16px;">These are not the needs the leader presents with. They are what lives underneath the presenting request.</p>
+    <div id="needs"></div>
+  </div>
+
+  <div id="sp-tot" class="panel">
+    <p style="font-size:13px;color:var(--mgray);margin-bottom:16px;">How Teams of Tomorrow speaks to each real need — not through what it offers, but through how it is.</p>
+    <div id="tots"></div>
+  </div>
+
+  <div id="sp-language" class="panel">
+    <p style="font-size:13px;color:var(--mgray);margin-bottom:16px;">The language that reaches this leader — and the language that doesn't.</p>
+    <div id="hooks"></div>
+    <div class="no-say" style="margin-top:16px;">
+      <strong>WHAT NOT TO SAY</strong>
+      <div class="no-say-item">Develop your leadership capabilities</div>
+      <div class="no-say-item">Build high-performing teams</div>
+      <div class="no-say-item">Navigate complexity with confidence</div>
+      <div class="no-say-item">Unlock your potential</div>
+      <p style="font-size:12px;color:#555;margin-top:8px;line-height:1.55;">These speak to the presenting self — the professional seeking improvement — not the human being underneath it.</p>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>©Teams of Tomorrow® · Facilitation resource</p>
+  <p>teamsoftomorrow.net</p>
+</footer>
+<script>
+const reaches=[
+  {n:1,title:"More information",sub:"Surely I'm missing something",body:"The first reach is analytical. If they can gather enough data, map the situation accurately enough, they will find the lever. Analysis increases. Clarity does not follow.",why:"Emergent complexity is not a problem of insufficient information. It is a property of the system itself. More data does not resolve it — it often deepens the confusion."},
+  {n:2,title:"More process",sub:"Perhaps the problem is execution",body:"Clearer accountabilities. Better governance. More rigorous review cycles. The team complies. The underlying tension doesn't move.",why:"Process is a technical response. The problem is adaptive. Adding structure to an adaptive challenge typically produces compliance without commitment."},
+  {n:3,title:"More control",sub:"If I hold it tightly enough it won't slip",body:"The leader moves closer to the work. More meetings. More decisions. The team feels the tightening. Psychological safety decreases. The signals the leader most needs disappear from the conversations they are in.",why:"Control narrows the information environment at precisely the moment the leader needs it to widen. The gap between what is happening and what the leader knows is happening widens further."},
+  {n:4,title:"A framework that will fix it",sub:"There must be a model I haven't tried yet",body:"A new methodology. A consultant. A leadership programme. The leader arrives with genuine hope and considerable intelligence. The system doesn't move, because the system is not a problem to be solved with a better model.",why:"This is the reach that Teams of Tomorrow must be most careful not to accidentally become. A programme that presents itself as the framework that will fix what other frameworks couldn't is offering a technical response to an adaptive need."},
+  {n:5,title:"Someone to tell them what to do",sub:"Just tell me the answer",body:"This reach is often disguised as something more sophisticated. But underneath is a genuine wish to have someone hand them a map. The wish is understandable. The map doesn't exist.",why:"Advice is a technical response to an adaptive need. The leader who receives advice and acts on it without developing their own capacity is no more equipped for the next challenge."}
+];
+
+const reachColors=["#1D9E75","#1D9E75","#BA7517","#BA7517","#D85A30"];
+const reachBgs=["#E1F5EE","#E1F5EE","#FAEEDA","#FAEEDA","#FAECE7"];
+
+const needs=[
+  {dot:"#534AB7",title:"To be witnessed, not advised",body:"The leader has been given advice. What they need is someone willing to stay in the room with their experience without immediately converting it into a problem to be solved."},
+  {dot:"#534AB7",title:"Permission to not-know — legitimately",body:"Every space available to them requires them to perform certainty. What they need is a space in which not-knowing is not a failure but the starting point. Sustained and recurring, not a one-off exercise."},
+  {dot:"#1D9E75",title:"Language for what they are experiencing",body:"The leader is carrying an experience they cannot name. Giving them language — capacity deficit, adaptive challenge, sense-making — is not a lecture. It is a gift. It makes the experience navigable."},
+  {dot:"#1D9E75",title:"Peers who are genuinely in it too",body:"Not peers who perform solidarity while privately competing. Peers who are visibly, authentically navigating similar complexity and willing to say so."},
+  {dot:"#BA7517",title:"To reconnect with why this matters",body:"The operational pressure of the threshold period tends to sever the leader from their sense of purpose. What they need is a genuine reconnection with their own values — the navigational ground from which sense-making becomes possible again."},
+  {dot:"#BA7517",title:"A different relationship with their team",body:"The leader is carrying complexity the team could help carry. They need support in redistributing the sense-making work — not as abdication but as a values-grounded redesign of how the leader-team system operates."},
+  {dot:"#D85A30",title:"To be changed, not improved",body:"The leader who is genuinely at the threshold does not need to become better at what they already do. They need to become capable of something they have not yet developed. That is transformation, not improvement."}
+];
+
+const tots=[
+  {need:"NEED: TO BE WITNESSED",what:"The peer group as a witnessing community",how:"The group of six is not a problem-solving forum. It is a space in which each person's experience is held with genuine attention. The facilitator's primary role is to model and protect this quality of witness."},
+  {need:"NEED: PERMISSION TO NOT-KNOW",what:"The programme's design philosophy as permission",how:"No syllabus. No answers. No certificate. The absence of these things is a structural statement that not-knowing is the starting point here, not a problem to be resolved before the real work begins."},
+  {need:"NEED: LANGUAGE FOR THE EXPERIENCE",what:"The capacity deficit frame arriving as recognition",how:"The language arrives after the experience, not before it. By session six, when the capacity cycle is introduced, the group has already lived through enough together that the framework lands as recognition."},
+  {need:"NEED: GENUINE PEERS",what:"The cohort design and selection",how:"Six leaders from different organisations, at similar levels of complexity, selected through chemistry conversations. The similarity of terrain — not of sector or role — is what makes peer recognition possible."},
+  {need:"NEED: RECONNECTION WITH PURPOSE",what:"Values and beliefs as the navigational thread",how:"Not a values exercise in session two. A living inquiry that runs through every session: what do you stand for, and where is the drift?"},
+  {need:"NEED: A DIFFERENT RELATIONSHIP WITH THE TEAM",what:"Sessions 7 and 8 — team signals and questions as leadership",how:"The programme helps leaders see the leader-team system differently — as a unit of sense-making rather than a hierarchy of authority."},
+  {need:"NEED: TO BE CHANGED, NOT IMPROVED",what:"The journey to we know not where",how:"The programme explicitly refuses to promise outcomes. What it offers is a different quality of learning — one that works on who the leader is becoming, not just what they do differently."}
+];
+
+const hooks=[
+  {border:"#534AB7",label:"FOR THE PORTAL WELCOME",copy:"\"Maybe it was a feeling — difficult to name — that the way you've always led is working less cleanly than it used to, and you're not entirely sure why.\""},
+  {border:"#1D9E75",label:"FOR THE LINKEDIN ARTICLE",copy:"\"The loneliness of leadership is specific. It is not the loneliness of having no one around. It is the loneliness of carrying something you cannot put down in any of the spaces available to you.\""},
+  {border:"#BA7517",label:"FOR THE PROGRAMME DESCRIPTOR",copy:"\"This is not a programme that will give you better answers. It is a space in which the quality of your questions can change — and that turns out to matter more.\""},
+  {border:"#D85A30",label:"FOR THE OPENING SESSION PROMPT",copy:"\"What is it costing you to already know?\""}
+];
+
+function renderAll(){
+  document.getElementById('reaches').innerHTML=reaches.map((r,i)=>`
+    <div class="reach-card" onclick="this.classList.toggle('open')">
+      <div class="rc-head"><div class="rc-seq" style="background:${reachBgs[i]};color:${reachColors[i]};">${r.n}</div>
+      <div><p class="rc-title">${r.title}</p><p class="rc-sub">${r.sub}</p></div></div>
+      <div class="rc-body"><p>${r.body}</p><p class="why">Why it fails: ${r.why}</p></div>
+    </div>`).join('');
+  document.getElementById('needs').innerHTML=`<div style="background:white;border-radius:10px;padding:4px 16px;border:1px solid #ddd;">${needs.map(n=>`
+    <div class="need-row"><div class="ndot" style="background:${n.dot};"></div>
+    <div><p class="need-title">${n.title}</p><p class="need-body">${n.body}</p></div></div>`).join('')}</div>`;
+  document.getElementById('tots').innerHTML=tots.map(t=>`
+    <div class="tot-card"><p class="tot-need">${t.need}</p><p class="tot-what">${t.what}</p><p class="tot-how">${t.how}</p></div>`).join('');
+  document.getElementById('hooks').innerHTML=hooks.map(h=>`
+    <div class="hook-card" style="border-color:${h.border};">
+      <p class="hook-label" style="color:${h.border};">${h.label}</p>
+      <p class="hook-copy">${h.copy}</p>
+    </div>`).join('');
+}
+
+function showStep(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.step-btn').forEach(b=>{b.classList.remove('active');b.style.background='none';b.style.color=''});
+  document.getElementById('sp-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+renderAll();
+</script>
+</body>
+</html>
